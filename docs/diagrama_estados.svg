@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 560" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#334155"/>
+    </marker>
+    <style>
+      .st  { fill:#e0e7ff; stroke:#4f46e5; stroke-width:2; }
+      .stG { fill:#dcfce7; stroke:#16a34a; stroke-width:2; }
+      .stR { fill:#fee2e2; stroke:#dc2626; stroke-width:2; }
+      .stV { fill:#fef9c3; stroke:#ca8a04; stroke-width:2; }
+      .lbl { font-size:15px; font-weight:700; fill:#1e293b; text-anchor:middle; }
+      .ed  { font-size:12px; fill:#334155; text-anchor:middle; }
+      .ar  { stroke:#334155; stroke-width:2; fill:none; marker-end:url(#arrow); }
+      .arR { stroke:#0ea5e9; stroke-width:1.6; fill:none; marker-end:url(#arrow); stroke-dasharray:5 4; }
+      .ttl { font-size:20px; font-weight:800; fill:#0f172a; text-anchor:middle; }
+      .note{ font-size:12px; fill:#64748b; }
+    </style>
+  </defs>
+
+  <text x="490" y="34" class="ttl">SafeCrack Pro - Diagrama de Estados (FSM)</text>
+
+  <!-- Estados de edicao em linha -->
+  <g>
+    <rect class="st"  x="40"  y="90" width="130" height="60" rx="10"/>
+    <text class="lbl" x="105" y="115">EDIT0</text>
+    <text class="ed"  x="105" y="135">1o digito</text>
+
+    <rect class="st"  x="250" y="90" width="130" height="60" rx="10"/>
+    <text class="lbl" x="315" y="115">EDIT1</text>
+    <text class="ed"  x="315" y="135">2o digito</text>
+
+    <rect class="st"  x="460" y="90" width="130" height="60" rx="10"/>
+    <text class="lbl" x="525" y="115">EDIT2</text>
+    <text class="ed"  x="525" y="135">3o digito</text>
+
+    <rect class="st"  x="670" y="90" width="130" height="60" rx="10"/>
+    <text class="lbl" x="735" y="115">EDIT3</text>
+    <text class="ed"  x="735" y="135">4o digito</text>
+  </g>
+
+  <!-- Transicoes KEY[1] (confirma) entre estados de edicao -->
+  <line class="ar" x1="170" y1="120" x2="248" y2="120"/>
+  <text class="ed" x="209" y="112">KEY[1]</text>
+  <line class="ar" x1="380" y1="120" x2="458" y2="120"/>
+  <text class="ed" x="419" y="112">KEY[1]</text>
+  <line class="ar" x1="590" y1="120" x2="668" y2="120"/>
+  <text class="ed" x="629" y="112">KEY[1]</text>
+
+  <!-- Self-loops KEY[2]/KEY[3] -->
+  <g class="ed">
+    <path class="ar" d="M70,90 C60,55 150,55 140,90"/>
+    <text x="105" y="58">KEY[2]/KEY[3]</text>
+    <path class="ar" d="M280,90 C270,55 360,55 350,90"/>
+    <text x="315" y="58">KEY[2]/KEY[3]</text>
+    <path class="ar" d="M490,90 C480,55 570,55 560,90"/>
+    <text x="525" y="58">KEY[2]/KEY[3]</text>
+    <path class="ar" d="M700,90 C690,55 780,55 770,90"/>
+    <text x="735" y="58">KEY[2]/KEY[3]</text>
+  </g>
+
+  <!-- VERIFY -->
+  <rect class="stV" x="670" y="240" width="130" height="60" rx="10"/>
+  <text class="lbl" x="735" y="266">VERIFY</text>
+  <text class="ed"  x="735" y="286">compara senha</text>
+  <line class="ar" x1="735" y1="150" x2="735" y2="238"/>
+  <text class="ed" x="775" y="200">KEY[1]</text>
+
+  <!-- UNLOCKED e WRONG -->
+  <rect class="stG" x="470" y="390" width="160" height="64" rx="10"/>
+  <text class="lbl" x="550" y="416">UNLOCKED</text>
+  <text class="ed"  x="550" y="436">LEDs verdes - 5 s</text>
+
+  <rect class="stR" x="730" y="390" width="160" height="64" rx="10"/>
+  <text class="lbl" x="810" y="416">WRONG</text>
+  <text class="ed"  x="810" y="436">LEDs vermelhos - 3 s</text>
+
+  <path class="ar" d="M710,300 C660,345 600,355 580,388"/>
+  <text class="ed" x="600" y="345">senha correta</text>
+  <path class="ar" d="M775,300 C790,335 800,355 808,388"/>
+  <text class="ed" x="855" y="345">senha incorreta</text>
+
+  <!-- Retorno ao EDIT0 apos timeout -->
+  <path class="ar" d="M470,422 C200,470 90,330 100,152"/>
+  <text class="ed" x="250" y="470">fim do tempo -> volta ao inicio</text>
+  <path class="ar" d="M730,452 C400,520 110,470 100,154"/>
+  <text class="ed" x="430" y="512">fim do tempo -> volta ao inicio</text>
+
+  <!-- Reset KEY[0] -->
+  <rect x="40" y="240" width="300" height="70" rx="10" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="5 4"/>
+  <text x="190" y="268" class="lbl" fill="#0ea5e9">RESET - KEY[0]</text>
+  <text x="190" y="290" class="note" text-anchor="middle">De QUALQUER estado: volta a EDIT0, digitos = 0, LEDs apagados</text>
+  <path class="arR" d="M190,240 C150,200 120,180 105,152"/>
+</svg>
