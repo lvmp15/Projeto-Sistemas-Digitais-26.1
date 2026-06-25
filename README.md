@@ -1,6 +1,4 @@
-# SafeCrack Pro — Cofre com seleção de dígitos por push-buttons
-
-Projeto Final de Sistemas Digitais (2026.1) · Prof. Victor Medeiros
+# Projeto Final de Sistemas Digitais (2026.1) · Prof. Victor Medeiros
 
 ## Integrantes:
 - Leonardo Medeiros Kitner
