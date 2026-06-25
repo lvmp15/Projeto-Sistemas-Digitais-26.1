@@ -7,7 +7,7 @@
 - Rafael Vitor Santos Cavalcanti
 
 
-Placa: **Terasic DE2-115** (FPGA Cyclone IV E — EP4CE115F29C7) · Linguagem: **SystemVerilog**
+Placa: **DE2-115** (FPGA Cyclone IV E — EP4CE115F29C7) · Linguagem: **SystemVerilog**
 
 O sistema implementa um cofre cuja senha de **4 dígitos (0–9)** é composta um dígito por vez,
 navegando com os push-buttons da placa. Cada dígito é confirmado individualmente; ao confirmar
