@@ -151,7 +151,7 @@ module SafeCrackPro #(
     end
 
     // ------------------------------------------------------------------------
-    //  Indice do digito ativo (1 a 4), derivado do estado. // HEX4
+    //  Indice do digito ativo (1 a 4), derivado do estado. HEX 4
     //  Nos estados de verificacao/feedback mantemos o 4 (ultimo digito).
     // ------------------------------------------------------------------------
     logic [3:0] active_idx;
