@@ -1,5 +1,5 @@
 // ============================================================================
-//  SafeCrack Pro  -  Cofre com seleção de dígitos por push-buttons
+//  SafeCrack Pro
 //  CIN0130 - Sistemas Digitais  |  DE2-115 (Cyclone IV E)
 // ----------------------------------------------------------------------------
 //  Top-level da FSM. O usuário compõe uma senha de 4 dígitos (0-9) navegando
@@ -67,7 +67,7 @@ module SafeCrackPro #(
     //  anterior (key_d) e geramos um pulso de 1 ciclo por pressionamento,
     //  garantindo UMA acao por clique mesmo que o botao fique segurado.
     // ------------------------------------------------------------------------
-    logic [3:0] key_d;
+    logic [3:0] key_d; // detecção de borda
     wire  [3:0] key_press = key_d & ~KEY;   // 1 onde houve borda de descida
 
     // ------------------------------------------------------------------------
